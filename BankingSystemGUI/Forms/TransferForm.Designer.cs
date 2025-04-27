@@ -170,7 +170,7 @@
             button1.Name = "button1";
             button1.Size = new Size(131, 35);
             button1.TabIndex = 8;
-            button1.Text = "Close";
+            button1.Text = "Back to Account";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 

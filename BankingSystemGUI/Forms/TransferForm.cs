@@ -29,10 +29,10 @@ namespace BankingSystemGUI.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             //Goes back to AccountDetailsForm
+            this.Hide();
+            AccountDetailsForm accountDetailsForm = new AccountDetailsForm(_bankAccount);
+            accountDetailsForm.ShowDialog();
             this.Close();
-            //AccountDetailsForm accountDetailsForm = new AccountDetailsForm(_bankAccount);
-            //accountDetailsForm.ShowDialog();
-
         }
 
         private void TransferFunc_Click(object sender, EventArgs e)
@@ -43,7 +43,11 @@ namespace BankingSystemGUI.Forms
             string sndT = sndTo.Text; //account sent
 
             //Check to see if transferring to same account
-            if (sndF.Equals(sndT))
+            if (sndF.Equals("Select account") || sndT.Equals("Select account"))
+            {
+                StatusMessage.Text = "Account not selected!";
+            }
+            else if (sndF.Equals(sndT))
             {
                 StatusMessage.Text = "Please Select 2 different Accounts!";
             }
